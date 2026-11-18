@@ -1,0 +1,50 @@
+{
+  "name": "문서 도구",
+  "short_name": "문서 도구",
+  "description": "PDF·PPT·한글 보기, 변환, 한글 편집 (기기 안에서만 처리)",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "ko",
+  "background_color": "#eef0f3",
+  "theme_color": "#1f3a5f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "files": [
+        {
+          "name": "file",
+          "accept": [
+            "application/pdf", ".pdf",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation", ".pptx",
+            "application/x-hwp", "application/haansofthwp", "application/vnd.hancom.hwp", ".hwp",
+            "application/hwp+zip", "application/vnd.hancom.hwpx", "application/haansofthwpx", ".hwpx",
+            "application/octet-stream", "application/zip"
+          ]
+        }
+      ]
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "./",
+      "accept": {
+        "application/pdf": [".pdf"],
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": [".pptx"],
+        "application/x-hwp": [".hwp"],
+        "application/hwp+zip": [".hwpx"]
+      }
+    }
+  ]
+}
